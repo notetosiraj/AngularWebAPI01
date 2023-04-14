@@ -2,6 +2,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+//Add new Startup file and use here for registerservices and middleware
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
