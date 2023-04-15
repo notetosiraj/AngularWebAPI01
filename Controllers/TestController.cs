@@ -4,21 +4,19 @@ namespace CRM01.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastyController : ControllerBase
+    public class TestController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-        private readonly ILogger<WeatherForecastyController> _logger;
+        private readonly ILogger<TestController> _logger;
 
-        public WeatherForecastyController(ILogger<WeatherForecastyController> logger)
+        public TestController(ILogger<TestController> logger)
         {
             _logger = logger;
             _logger.LogInformation("Test");
-            _logger.LogInformation(TestController.testString());
-
           
         }
 
@@ -32,6 +30,11 @@ namespace CRM01.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        public static string testString()
+        {
+            return "testString";
         }
     }
 }
