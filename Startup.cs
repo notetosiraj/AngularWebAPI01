@@ -26,8 +26,8 @@ namespace CRM01
             // services.AddRazorPages();  //as of not required 
             services.AddControllersWithViews();//it says register services for controller with views
             services.AddControllers(); //it says register services for api
-            //services.AddEndpointsApiExplorer();
-            //services.AddSwaggerGen();
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
             string? connectionString = Configuration.GetConnectionString("default");
             services.AddDbContext<CRMDbContext>(DBContextOptionsBuilder => DBContextOptionsBuilder.UseSqlServer(connectionString));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -47,8 +47,8 @@ namespace CRM01
             }
             else
             {
-                //app.UseSwagger();
-                //app.UseSwaggerUI();
+                app.UseSwagger();
+                app.UseSwaggerUI();
                 //app.UseSwaggerUI(options =>
                 //{  not required as of now 
                 //    options.SwaggerEndpoint("./swagger/v1/swagger.json", "v1");
